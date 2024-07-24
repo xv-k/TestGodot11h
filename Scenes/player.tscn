@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://7axf6xtd02n0"]
+[gd_scene load_steps=7 format=3 uid="uid://7axf6xtd02n0"]
 
 [ext_resource type="Texture2D" uid="uid://bctgl47vnws88" path="res://Assets/Sprites/Characters/Basic Charakter Spritesheet.png" id="1_0rp2k"]
+[ext_resource type="Texture2D" uid="uid://ben5xcopcnnhu" path="res://Assets/Sprites/Characters/Tools.png" id="2_60e76"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_132h1"]
 atlas = ExtResource("1_0rp2k")
@@ -33,7 +34,14 @@ height = 14.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8tdfh")
 autoplay = "default"
-frame_progress = 0.388764
+frame_progress = 0.0970457
+
+[node name="Tool" type="Sprite2D" parent="AnimatedSprite2D"]
+position = Vector2(-8, 2)
+texture = ExtResource("2_60e76")
+hframes = 6
+vframes = 6
+frame = 13
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_kduf7")
