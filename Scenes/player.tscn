@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://7axf6xtd02n0"]
+
+[ext_resource type="Texture2D" uid="uid://bctgl47vnws88" path="res://Assets/Sprites/Characters/Basic Charakter Spritesheet.png" id="1_0rp2k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_132h1"]
+atlas = ExtResource("1_0rp2k")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6678k"]
+atlas = ExtResource("1_0rp2k")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8tdfh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_132h1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6678k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kduf7"]
+radius = 5.0
+height = 14.0
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8tdfh")
+autoplay = "default"
+frame_progress = 0.388764
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_kduf7")
