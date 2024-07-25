@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ca2ekjrx25br8"
+path="res://.godot/imported/05 - Here's To The Pioneers.mp3-8ecf646681e39a4ce741b9daff967b97.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/05 - Here's To The Pioneers.mp3"
+dest_files=["res://.godot/imported/05 - Here's To The Pioneers.mp3-8ecf646681e39a4ce741b9daff967b97.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
