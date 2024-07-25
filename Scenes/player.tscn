@@ -268,7 +268,7 @@ script = ExtResource("1_qw0d6")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -19)
 sprite_frames = SubResource("SpriteFrames_8tdfh")
-animation = &"idle_front"
+animation = &"idle_front_angle"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
