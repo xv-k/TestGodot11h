@@ -3,11 +3,16 @@ extends CharacterBody2D
 
 @onready var animated_sprite = $AnimatedSprite2D
 const SPEED = 35.0
-var orientation:String
+var movement:bool
 
 func _physics_process(_delta):
 	var direction = Input.get_vector("left", "right", "up","down")
 	#position += direction * SPEED * delta
+	if direction == Vector2.ZERO:
+		movement = false
+	else :
+		movement = true
+		
 	velocity = direction * SPEED
 	print(velocity)
 	
@@ -24,18 +29,14 @@ func _physics_process(_delta):
 #idle should change to walking animation
 func set_animation_orientation(direction:Vector2):
 	if velocity.x < 0:
-		orientation = "left"
 		animated_sprite.flip_h = true
 		animated_sprite.play("walk_side")
 	if velocity.x > 0: 
-		orientation = "right"
 		animated_sprite.flip_h = false
 		animated_sprite.play("walk_side")
 	if velocity.y > 0: 
-		orientation = "down"
 		animated_sprite.play("walk_front")
 	if velocity.y < 0: 
-		orientation = "up"
 		animated_sprite.play("walk_back")
 		
 	#if (direction[0] == 0 and direction[1] == 1):
