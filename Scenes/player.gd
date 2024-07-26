@@ -5,6 +5,7 @@ extends CharacterBody2D
 const SPEED = 35.0
 var movement:bool
 var last_movement:String = "front"
+var last_flip:bool = false
 
 func _physics_process(_delta):
 	var direction = Input.get_vector("left", "right", "up","down")
@@ -15,59 +16,64 @@ func _physics_process(_delta):
 		movement = true
 		
 	velocity = direction * SPEED
-	print(velocity)
+	#print(velocity)
 	
 	set_animation_orientation(direction)
 	
+	#shoot animation is not working properly
 	if (Input.is_action_just_pressed("shoot")):
-		print("shoot")
+		print("shoot_" + last_movement)
+		#animated_sprite.stop()
+		animated_sprite.flip_h = last_flip
+		animated_sprite.play("shoot_" + last_movement)
+		
 	if (Input.is_action_just_pressed("reload")):
 		print("reload")
 
 	move_and_slide()
-	
-#orientation will be done by mouse (movement shoeld not affect animation)
-#idle should change to walking animation
+
+
+#orientation will eventually be done by mouse (movement should not affect animation)
 func set_animation_orientation(direction:Vector2):
-	if velocity.x < 0:
+	if velocity.x < 0 and velocity.y == 0:
 		animated_sprite.flip_h = true
 		animated_sprite.play("walk_side")
-	if velocity.x > 0: 
+		last_movement = "side"
+		last_flip = true
+	if velocity.x > 0 and velocity.y == 0: 
 		animated_sprite.flip_h = false
 		animated_sprite.play("walk_side")
-	if velocity.y > 0: 
+		last_movement = "side"
+		last_flip = false
+	if velocity.x > 0 and velocity.y > 0: 
+		animated_sprite.flip_h = false
+		animated_sprite.play("walk_front_angle")
+		last_movement = "front_angle"
+		last_flip = false
+	if velocity.x > 0 and velocity.y < 0: 
+		animated_sprite.flip_h = false
+		animated_sprite.play("walk_back_angle")
+		last_movement = "back_angle"
+		last_flip = false
+	if velocity.x == 0 and velocity.y > 0: 
 		animated_sprite.play("walk_front")
 		last_movement = "front"
-	if velocity.y < 0: 
+		last_flip = false
+	if velocity.x == 0 and velocity.y < 0: 
 		animated_sprite.play("walk_back")
 		last_movement = "back"
-	if velocity.x == 0 and velocity.y == 0: 
+		last_flip = false
+	if velocity.x < 0 and velocity.y > 0: 
+		animated_sprite.flip_h = true
+		animated_sprite.play("walk_front_angle")
+		last_movement = "front_angle"
+		last_flip = true
+	if velocity.x < 0 and velocity.y < 0: 
+		animated_sprite.flip_h = true
+		animated_sprite.play("walk_back_angle")
+		last_movement = "back_angle"
+		last_flip = true
+	if velocity.x == 0 and velocity.y == 0:
+		animated_sprite.flip_h = last_flip
 		animated_sprite.play("idle_" + last_movement)
 		
-	#if (direction[0] == 0 and direction[1] == 1):
-		#animated_sprite.play("walk_front")
-#
-	#if (direction[0] == 0 and direction[1] == -1):
-		#animated_sprite.play("walk_back")
-	#if (direction[0] == 1 and direction[1] == 0):
-		#animated_sprite.flip_h = false
-		#animated_sprite.play("walk_side")
-	#if (direction[0] == -1 and direction[1] == 0):
-		#animated_sprite.flip_h = true
-		#animated_sprite.play("walk_side")
-#else:
-	#if (direction[0] == 0 and direction[1] == 1):
-		#animated_sprite.play("idle_front")
-	#if (direction[0] == 0 and direction[1] == -1):
-		#animated_sprite.play("idle_back")
-	#if (direction[0] == 1 and direction[1] == 0):
-		#animated_sprite.flip_h = false
-		#animated_sprite.play("idle_side")
-	#if (direction[0] == -1 and direction[1] == 0):
-		#animated_sprite.flip_h = true
-		#animated_sprite.play("idle_side")
-		#implement this
-		#if velocity.x < 0: direction = “left”
-#elif velocity.x > 0: direction = “right”
-#elif velocity.y > 0: direction = “down”
-#elif velocity.y < 0: direction = “up”
