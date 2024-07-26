@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var animated_sprite = $AnimatedSprite2D
 const SPEED = 35.0
 var movement:bool
+var last_movement:String = "front"
 
 func _physics_process(_delta):
 	var direction = Input.get_vector("left", "right", "up","down")
@@ -36,8 +37,12 @@ func set_animation_orientation(direction:Vector2):
 		animated_sprite.play("walk_side")
 	if velocity.y > 0: 
 		animated_sprite.play("walk_front")
+		last_movement = "front"
 	if velocity.y < 0: 
 		animated_sprite.play("walk_back")
+		last_movement = "back"
+	if velocity.x == 0 and velocity.y == 0: 
+		animated_sprite.play("idle_" + last_movement)
 		
 	#if (direction[0] == 0 and direction[1] == 1):
 		#animated_sprite.play("walk_front")
