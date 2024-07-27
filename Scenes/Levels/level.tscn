@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://dgrawmb3nqcih"]
+[gd_scene load_steps=3 format=3 uid="uid://dgrawmb3nqcih"]
 
 [ext_resource type="PackedScene" uid="uid://7axf6xtd02n0" path="res://Scenes/player.tscn" id="1_roe4m"]
+[ext_resource type="PackedScene" uid="uid://dcygvndklm530" path="res://Scenes/tree.tscn" id="2_fphmc"]
 
 [node name="Level" type="Node2D"]
 position = Vector2(83, 82)
+
+[node name="Tree" parent="." instance=ExtResource("2_fphmc")]
+position = Vector2(96, -26)
 
 [node name="Player" parent="." instance=ExtResource("1_roe4m")]
 

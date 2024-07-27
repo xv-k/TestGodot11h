@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcygvndklm530"]
+
+[ext_resource type="Texture2D" uid="uid://mjhk3ja4m02i" path="res://Assets/Sprites/Atlas.png" id="1_nkkwi"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gpcsj"]
+radius = 15.0
+height = 50.0
+
+[node name="Tree" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -47)
+texture = ExtResource("1_nkkwi")
+region_enabled = true
+region_rect = Rect2(528.566, 465.759, 62.653, 94.3206)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -25)
+shape = SubResource("CapsuleShape2D_gpcsj")

@@ -10,7 +10,8 @@ var shoot: bool = false
 
 func _physics_process(_delta):
 	var direction = Input.get_vector("left", "right", "up","down")
-	#position += direction * SPEED * delta		
+	#position += direction * SPEED * delta
+	
 	velocity = direction * SPEED
 	#print(velocity)
 	
@@ -29,7 +30,9 @@ func _physics_process(_delta):
 	if (Input.is_action_just_pressed("reload")):
 		print("reload")
 
-	move_and_slide()
+	#make it so you cant move while shooting
+	if !shoot:
+		move_and_slide()
 
 func _on_timer_timeout():
 	shoot = false
