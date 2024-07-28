@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @onready var timer = $AnimatedSprite2D/Timer
 
+signal shoot_bullet
+
 @onready var animated_sprite:AnimatedSprite2D = $AnimatedSprite2D
 const SPEED = 35.0
 var last_movement:String = "front"
@@ -19,7 +21,8 @@ func _physics_process(_delta):
 	
 	#shoot animation is not working properly
 	if (Input.is_action_just_pressed("shoot") and !shoot):
-		print("shoot_" + last_movement)
+		shoot_bullet.emit()
+		#print("shoot_" + last_movement)
 		#animated_sprite.stop()
 		animated_sprite.flip_h = last_flip
 		animated_sprite.play("shoot_" + last_movement)

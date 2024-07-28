@@ -3712,10 +3712,12 @@ layer_2/tile_data = PackedInt32Array()
 position = Vector2(136, -56)
 
 [node name="BagOfMoney2" parent="." instance=ExtResource("3_jgqms")]
-position = Vector2(8, -88)
+position = Vector2(184, 24)
+sprite_frame = 2
 
 [node name="BagOfMoney3" parent="." instance=ExtResource("3_jgqms")]
-position = Vector2(152, 56)
+position = Vector2(24, -72)
+sprite_frame = 3
 
 [node name="Player" parent="." instance=ExtResource("1_roe4m")]
 
@@ -3723,3 +3725,6 @@ position = Vector2(152, 56)
 zoom = Vector2(3, 3)
 
 [connection signal="player_entered" from="BagOfMoney" to="." method="_on_bag_of_money_player_entered"]
+[connection signal="player_entered" from="BagOfMoney2" to="." method="_on_bag_of_money_player_entered"]
+[connection signal="player_entered" from="BagOfMoney3" to="." method="_on_bag_of_money_player_entered"]
+[connection signal="shoot_bullet" from="Player" to="." method="_on_player_shoot_bullet"]
