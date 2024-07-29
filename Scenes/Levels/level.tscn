@@ -3720,9 +3720,12 @@ position = Vector2(24, -72)
 sprite_frame = 3
 
 [node name="Player" parent="." instance=ExtResource("1_roe4m")]
+position = Vector2(248, -24)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(3, 3)
+
+[node name="Bullets" type="Node2D" parent="."]
 
 [connection signal="player_entered" from="BagOfMoney" to="." method="_on_bag_of_money_player_entered"]
 [connection signal="player_entered" from="BagOfMoney2" to="." method="_on_bag_of_money_player_entered"]

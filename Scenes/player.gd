@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var timer = $AnimatedSprite2D/Timer
 
-signal shoot_bullet
+signal shoot_bullet(nozzle)
 
 @onready var animated_sprite:AnimatedSprite2D = $AnimatedSprite2D
 const SPEED = 35.0
@@ -20,10 +20,11 @@ func _physics_process(_delta):
 	set_animation_orientation(direction)
 	
 	#shoot animation is not working properly
+	
 	if (Input.is_action_just_pressed("shoot") and !shoot):
-		shoot_bullet.emit()
-		#print("shoot_" + last_movement)
-		#animated_sprite.stop()
+		var nozzle_marker = select_nozzle(last_flip, last_movement)
+		shoot_bullet.emit(nozzle_marker)
+		
 		animated_sprite.flip_h = last_flip
 		animated_sprite.play("shoot_" + last_movement)
 		shoot = true
@@ -88,6 +89,26 @@ func set_animation_orientation(direction:Vector2):
 		if velocity.x == 0 and velocity.y == 0:
 			animated_sprite.flip_h = last_flip
 			animated_sprite.play("idle_" + last_movement)
+			
+func select_nozzle(flip:bool, orientation:String) -> Marker2D:
+	if !flip and orientation == "back":
+		return $BulletPositions/back
+	if !flip and orientation == "front":
+		return $BulletPositions/front
+	if !flip and orientation == "front_angle":
+		return $BulletPositions/front_angle
+	if flip and orientation == "front_angle":
+		return $BulletPositions/flipped_front_angle
+	if !flip and orientation == "back_angle":
+		return $BulletPositions/back_angle
+	if flip and orientation == "back_angle":
+		return $BulletPositions/flipped_back_angle
+	if !flip and orientation == "side":
+		return $BulletPositions/side
+	if flip and orientation == "side":
+		return $BulletPositions/flipped_side
+	else:
+		return $BulletPositions/front
 	
 
 

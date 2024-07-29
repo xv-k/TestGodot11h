@@ -8,8 +8,8 @@ func _on_bag_of_money_player_entered(body):
 	print(str(money) + "$")
 
 
-func _on_player_shoot_bullet():
-	#var bullet = bullet_scene.instantiate()
-	#bullet.position = $Player.position
-	#add_child(bullet)
-	print("bullet shot from player in level")
+func _on_player_shoot_bullet(nozzle_marker):
+	var bullet = bullet_scene.instantiate()
+	$Bullets.add_child(bullet)
+	bullet.global_position = nozzle_marker.global_position
+	bullet.rotation = nozzle_marker.rotation
