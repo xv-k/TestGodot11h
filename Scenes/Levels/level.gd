@@ -8,8 +8,11 @@ func _on_bag_of_money_player_entered(body):
 	print(str(money) + "$")
 
 
-func _on_player_shoot_bullet(nozzle_marker):
+func _on_player_shoot_bullet(nozzle_marker, shot_direction):
 	var bullet = bullet_scene.instantiate()
 	$Bullets.add_child(bullet)
+	#bullet.direction = shot_direction
+	#works with the nozzle rotation (the rotation is to rotate the bullet)
+	bullet.direction =Vector2.UP.rotated(nozzle_marker.rotation)
 	bullet.global_position = nozzle_marker.global_position
 	bullet.rotation = nozzle_marker.rotation
