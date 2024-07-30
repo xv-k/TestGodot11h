@@ -1,7 +1,6 @@
 extends Area2D
 
-
-var speed: int = 100
+@export var speed: int = 100
 var direction: Vector2
 
 func _ready():

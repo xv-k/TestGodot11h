@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var timer = $AnimatedSprite2D/Timer
 
-signal shoot_bullet(nozzle)
+signal shoot_bullet(nozzle_marker)
 
 @onready var animated_sprite:AnimatedSprite2D = $AnimatedSprite2D
 const SPEED = 35.0
