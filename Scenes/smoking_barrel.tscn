@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bj5icslfqp8s6"]
+[gd_scene load_steps=5 format=3 uid="uid://bj5icslfqp8s6"]
 
 [ext_resource type="Texture2D" uid="uid://mjhk3ja4m02i" path="res://Assets/Sprites/Atlas.png" id="1_ukxtk"]
+[ext_resource type="Texture2D" uid="uid://d4kqxxtbsyclq" path="res://Assets/Sprites/Smoke.png" id="2_ipxlv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b3lbj"]
 radius = 7.07107
@@ -10,8 +11,9 @@ particle_flag_disable_z = true
 emission_shape = 1
 emission_sphere_radius = 6.0
 gravity = Vector3(15, -15, 0)
-scale_min = 2.0
-scale_max = 4.0
+scale_min = 0.2
+scale_max = 1.2
+anim_speed_max = 0.36
 
 [node name="SmokingBarrel" type="StaticBody2D"]
 
@@ -28,3 +30,4 @@ shape = SubResource("CircleShape2D_b3lbj")
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(0, -3)
 process_material = SubResource("ParticleProcessMaterial_f1fus")
+texture = ExtResource("2_ipxlv")
