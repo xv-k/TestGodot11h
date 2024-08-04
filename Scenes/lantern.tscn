@@ -25,6 +25,8 @@ shape = SubResource("CapsuleShape2D_hxqf1")
 color = Color(0.815686, 0.8, 0.415686, 0.941176)
 energy = 0.8
 shadow_enabled = true
+shadow_color = Color(0.172549, 0.14902, 0.0901961, 0.807843)
+shadow_filter_smooth = 15.5
 texture = ExtResource("2_0tacq")
 texture_scale = 0.2
 
