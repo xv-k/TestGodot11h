@@ -809,10 +809,8 @@ script = ExtResource("1_qw0d6")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -19)
 sprite_frames = SubResource("SpriteFrames_8tdfh")
-animation = &"shoot_front"
+animation = &"idle_front"
 autoplay = "default"
-frame = 5
-frame_progress = 1.0
 
 [node name="Timer" type="Timer" parent="AnimatedSprite2D"]
 wait_time = 0.6

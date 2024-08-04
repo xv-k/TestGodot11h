@@ -8,6 +8,7 @@ radius = 2.0
 height = 4.0
 
 [node name="Bullet" type="Area2D"]
+collision_layer = 4
 script = ExtResource("1_ksklf")
 speed = 150
 
