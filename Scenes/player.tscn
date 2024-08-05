@@ -809,7 +809,7 @@ script = ExtResource("1_qw0d6")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -19)
 sprite_frames = SubResource("SpriteFrames_8tdfh")
-animation = &"shoot_back_angle"
+animation = &"idle_front"
 autoplay = "default"
 
 [node name="Timer" type="Timer" parent="AnimatedSprite2D"]

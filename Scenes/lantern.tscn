@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://brfalgwcxbdm4"]
+
+[ext_resource type="Script" path="res://Scenes/lantern.gd" id="1_4q2wc"]
+[ext_resource type="Texture2D" uid="uid://cdo4h4a3f6t3b" path="res://Assets/Sprites/lantern.png" id="1_5fcl3"]
+[ext_resource type="Texture2D" uid="uid://d2ayjigjbjqkj" path="res://Assets/Sprites/light_god.png" id="2_0tacq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hxqf1"]
+radius = 4.0
+height = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gt5nm"]
+radius = 5.0
+
+[node name="Lantern" type="StaticBody2D"]
+script = ExtResource("1_4q2wc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5fcl3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("CapsuleShape2D_hxqf1")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.815686, 0.8, 0.415686, 0.941176)
+energy = 0.8
+shadow_enabled = true
+shadow_color = Color(0.172549, 0.14902, 0.0901961, 0.807843)
+shadow_filter_smooth = 15.5
+texture = ExtResource("2_0tacq")
+texture_scale = 0.2
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_gt5nm")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
