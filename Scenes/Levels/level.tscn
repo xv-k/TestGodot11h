@@ -3724,6 +3724,7 @@ position = Vector2(248, -24)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(3, 3)
+position_smoothing_enabled = true
 
 [node name="Bullets" type="Node2D" parent="."]
 
