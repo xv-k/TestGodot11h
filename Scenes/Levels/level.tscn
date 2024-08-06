@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://dgrawmb3nqcih"]
+[gd_scene load_steps=14 format=3 uid="uid://dgrawmb3nqcih"]
 
 [ext_resource type="PackedScene" uid="uid://7axf6xtd02n0" path="res://Scenes/player.tscn" id="1_roe4m"]
 [ext_resource type="Script" path="res://Scenes/Levels/level.gd" id="1_s4ubn"]
 [ext_resource type="Texture2D" uid="uid://mjhk3ja4m02i" path="res://Assets/Sprites/Atlas.png" id="1_usyfe"]
-[ext_resource type="PackedScene" uid="uid://bj5icslfqp8s6" path="res://Scenes/smoking_barrel.tscn" id="3_6kmb8"]
-[ext_resource type="PackedScene" uid="uid://brfalgwcxbdm4" path="res://Scenes/lantern.tscn" id="3_gyso5"]
+[ext_resource type="PackedScene" path="res://Scenes/smoking_barrel.tscn" id="3_6kmb8"]
+[ext_resource type="PackedScene" uid="uid://eukc1ytdvkww" path="res://Scenes/swinging_sign.tscn" id="3_8mykg"]
+[ext_resource type="PackedScene" uid="uid://br2dh1pxax2d" path="res://Scenes/lantern.tscn" id="3_gyso5"]
 [ext_resource type="PackedScene" uid="uid://bkvf6tdetmb1d" path="res://Scenes/bag_of_money.tscn" id="3_jgqms"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_s54lj"]
@@ -3798,8 +3799,12 @@ layer_3/name = "Buildings"
 layer_3/y_sort_enabled = true
 layer_3/tile_data = PackedInt32Array(-393188, 65536, 13, -327652, 65536, 14, -262116, 65536, 15, -196580, 65536, 16, -393187, 131072, 13, -327651, 131072, 14, -262115, 131072, 15, -196579, 131072, 16, -131043, 131072, 17, -65507, 131072, 18, 29, 131072, 19, -393186, 196608, 13, -327650, 196608, 14, -262114, 196608, 15, -196578, 196608, 16, -131042, 196608, 17, -65506, 196608, 18, 30, 196608, 19, -393185, 262144, 13, -327649, 262144, 14, -262113, 262144, 15, -196577, 262144, 16, -131041, 262144, 17, -65505, 262144, 18, 31, 262144, 19, -393184, 327680, 13, -327648, 327680, 14, -262112, 327680, 15, -196576, 327680, 16, -131040, 327680, 17, -65504, 327680, 18, 32, 327680, 19, -458719, 393216, 12, -393183, 393216, 13, -327647, 393216, 14, -262111, 393216, 15, -196575, 393216, 16, -131039, 393216, 17, -65503, 393216, 18, 33, 393216, 19, -458718, 458752, 12, -393182, 458752, 13, -327646, 458752, 14, -262110, 458752, 15, -196574, 458752, 16, -131038, 458752, 17, -65502, 458752, 18, 34, 458752, 19, -458717, 524288, 12, -393181, 524288, 13, -327645, 524288, 14, -262109, 524288, 15, -196573, 524288, 16, -131037, 524288, 17, -65501, 524288, 18, 35, 524288, 19, -458716, 589824, 12, -393180, 589824, 13, -327644, 589824, 14, -262108, 589824, 15, -196572, 589824, 16, -131036, 589824, 17, -65500, 589824, 18, 36, 589824, 19, -393179, 655360, 13, -327643, 655360, 14, -262107, 655360, 15, -196571, 655360, 16, -131035, 655360, 17, -65499, 655360, 18, 37, 655360, 19, -393178, 720896, 13, -327642, 720896, 14, -262106, 720896, 15, -196570, 720896, 16, -131034, 720896, 17, -65498, 720896, 18, 38, 720896, 19, -393177, 786432, 13, -327641, 786432, 14, -262105, 786432, 15, -196569, 786432, 16, -131033, 786432, 17, -65497, 786432, 18, 39, 786432, 19, -393176, 851968, 13, -327640, 851968, 14, -262104, 851968, 15, -196568, 851968, 16, -131032, 851968, 17, -65496, 851968, 18, 40, 851968, 19, -393175, 917504, 13, -327639, 917504, 14, -262103, 917504, 15, -196567, 917504, 16, 65569, 393216, 20, 65570, 458752, 20, 65571, 524288, 20, 131105, 393216, 21, 131106, 458752, 21, 131107, 524288, 21, 65568, 327680, 20, 65572, 589824, 20, 65573, 655360, 20, 65565, 131072, 20, 65566, 196608, 20, 65567, 262144, 20, 131104, 327680, 21, 131108, 589824, 21, 131109, 655360, 21, 65574, 720896, 20, 65575, 786432, 20, 65576, 851968, 20, 65557, 2293760, 17, 131093, 2293760, 18)
 
+[node name="SwingingSign" parent="." instance=ExtResource("3_8mykg")]
+position = Vector2(232, -88)
+
 [node name="Lantern" parent="." instance=ExtResource("3_gyso5")]
 position = Vector2(61, 14)
+metadata/_edit_lock_ = true
 
 [node name="Lantern2" parent="." instance=ExtResource("3_gyso5")]
 position = Vector2(-163, 110)
@@ -3836,6 +3841,13 @@ position = Vector2(22, -7)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.459889, 0.460779, 0.437126, 1)
+metadata/_edit_lock_ = true
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+visible = false
+color = Color(0.843184, 0.843184, 0.843184, 1)
+blend_mode = 1
+metadata/_edit_lock_ = true
 
 [connection signal="player_entered" from="BagOfMoney" to="." method="_on_bag_of_money_player_entered"]
 [connection signal="player_entered" from="BagOfMoney2" to="." method="_on_bag_of_money_player_entered"]

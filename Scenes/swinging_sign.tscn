@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=3 uid="uid://eukc1ytdvkww"]
+
+[ext_resource type="Texture2D" uid="uid://mjhk3ja4m02i" path="res://Assets/Sprites/Atlas.png" id="1_y03fu"]
+[ext_resource type="Script" path="res://Scenes/swinging_sign.gd" id="1_yw80a"]
+
+[sub_resource type="Animation" id="Animation_u0jxj"]
+resource_name = "swing"
+length = 9.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sign:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.279253, -0.244346, 0.20944, -0.174533, 0.139626, -0.10472, 0.0698132, -0.0349066, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_1juwl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sign:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6ib47"]
+_data = {
+"RESET": SubResource("Animation_1juwl"),
+"swing": SubResource("Animation_u0jxj")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q8d26"]
+size = Vector2(24, 14)
+
+[node name="SwingingSign" type="StaticBody2D"]
+script = ExtResource("1_yw80a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_y03fu")
+region_enabled = true
+region_rect = Rect2(304, 336, 80, 48)
+
+[node name="Sign" type="Sprite2D" parent="."]
+texture = ExtResource("1_y03fu")
+region_enabled = true
+region_rect = Rect2(656, 256, 32, 32)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-35, 24, -35, -12, -40, -12, -40, -20, 40, -20, 40, -12, 35, -12, 35, 24, 27, 24, 27, -12, -27, -12, -27, 24)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6ib47")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_q8d26")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
