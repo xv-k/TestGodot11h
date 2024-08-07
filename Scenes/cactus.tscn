@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://cde62808386xx"]
+
+[ext_resource type="Texture2D" uid="uid://mjhk3ja4m02i" path="res://Assets/Sprites/Atlas.png" id="1_6sfaj"]
+[ext_resource type="Script" path="res://Scenes/cactus.gd" id="1_r48eg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f6kln"]
+radius = 5.0
+height = 20.0
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_o5oon"]
+polygon = PackedVector2Array(-3, 8, -3, 1, -7, 1, -7, -5, -4, -5, -4, -10, 0, -12, 3, -10, 3, -2, 6, -2, 6, 5, 4, 7, 3, 9)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fhvgd"]
+radius = 6.0
+height = 22.0
+
+[node name="Cactus" type="StaticBody2D"]
+collision_mask = 2
+script = ExtResource("1_r48eg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -6)
+texture = ExtResource("1_6sfaj")
+region_enabled = true
+region_rect = Rect2(32, 480, 16, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_f6kln")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(0, 1)
+occluder = SubResource("OccluderPolygon2D_o5oon")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_fhvgd")
+debug_color = Color(0.838092, 0.183517, 0.827369, 0.42)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

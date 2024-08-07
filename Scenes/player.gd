@@ -19,7 +19,7 @@ func _physics_process(_delta):
 	velocity = direction * SPEED
 	#print(velocity)
 	
-	set_animation_orientation(direction)
+	set_animation_orientation()
 	
 	#shoot animation is not working properly
 	
@@ -48,7 +48,7 @@ func _physics_process(_delta):
 func _on_timer_timeout():
 	shoot = false
 	
-func set_animation_orientation(direction:Vector2):
+func set_animation_orientation():
 	if !shoot :
 		# play animtion depending on velocity values
 		# and save the orinetation in last_movement and last_flip
