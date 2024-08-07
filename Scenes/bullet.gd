@@ -14,3 +14,7 @@ func _process(delta):
 func _on_timer_timeout():
 	#when timer runs out, delete the bullet
 	queue_free()
+
+
+func _on_body_entered(body):
+	queue_free()
