@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://0r7w42uf4abb"]
+
+[ext_resource type="PackedScene" uid="uid://cjevo2aeol86k" path="res://Scenes/cactus.tscn" id="1_vf2g8"]
+[ext_resource type="PackedScene" uid="uid://eukc1ytdvkww" path="res://Scenes/swinging_sign.tscn" id="2_uqy6v"]
+[ext_resource type="PackedScene" uid="uid://7axf6xtd02n0" path="res://Scenes/player.tscn" id="3_os05f"]
+[ext_resource type="PackedScene" uid="uid://71isu7gr6b3d" path="res://Scenes/bullet.tscn" id="4_r0lu1"]
+
+[node name="Level2" type="Node2D"]
+
+[node name="Cactus" parent="." instance=ExtResource("1_vf2g8")]
+position = Vector2(96, 102)
+
+[node name="SwingingSign" parent="." instance=ExtResource("2_uqy6v")]
+position = Vector2(235, 86)
+
+[node name="Player" parent="." instance=ExtResource("3_os05f")]
+position = Vector2(89, 37)
+
+[node name="Bullet" parent="." instance=ExtResource("4_r0lu1")]

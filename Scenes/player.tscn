@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=3 uid="uid://7axf6xtd02n0"]
+[gd_scene load_steps=114 format=3 uid="uid://7axf6xtd02n0"]
 
 [ext_resource type="Texture2D" uid="uid://62gj0hl0hoyf" path="res://Assets/Sprites/Player/Player Angle 1 Sheet.png" id="1_jekjl"]
 [ext_resource type="Script" path="res://Scenes/player.gd" id="1_qw0d6"]
@@ -11,6 +11,18 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_klprl"]
 atlas = ExtResource("2_oqbtw")
 region = Rect2(576, 44, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnfmg"]
+atlas = ExtResource("4_lnjo8")
+region = Rect2(0, 176, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysq32"]
+atlas = ExtResource("4_lnjo8")
+region = Rect2(48, 176, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_717jc"]
+atlas = ExtResource("4_lnjo8")
+region = Rect2(96, 176, 48, 44)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6qvym"]
 atlas = ExtResource("2_r0e67")
@@ -424,6 +436,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_dnfmg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysq32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_717jc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysq32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnfmg")
+}],
+"loop": false,
+"name": &"hit_front",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_6qvym")
 }, {
 "duration": 1.0,
@@ -809,11 +841,15 @@ script = ExtResource("1_qw0d6")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -19)
 sprite_frames = SubResource("SpriteFrames_8tdfh")
-animation = &"idle_front"
+animation = &"hit_front"
 autoplay = "default"
 
 [node name="Timer" type="Timer" parent="AnimatedSprite2D"]
 wait_time = 0.6
+one_shot = true
+
+[node name="HitTimer" type="Timer" parent="AnimatedSprite2D"]
+wait_time = 0.5
 one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -854,3 +890,4 @@ position = Vector2(-13, -15)
 rotation = -1.5708
 
 [connection signal="timeout" from="AnimatedSprite2D/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="AnimatedSprite2D/HitTimer" to="." method="_on_hit_timer_timeout"]

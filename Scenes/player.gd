@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var timer = $AnimatedSprite2D/Timer
+@onready var hit_timer = $AnimatedSprite2D/HitTimer
 
 signal shoot_bullet(nozzle_marker)
 
@@ -9,6 +10,7 @@ const SPEED = 35.0
 var last_movement:String = "front"
 var last_flip:bool = false
 var shoot: bool = false
+var hit: bool = false
 
 func _physics_process(_delta):
 	var direction = Input.get_vector("left", "right", "up","down")
@@ -41,15 +43,15 @@ func _physics_process(_delta):
 	if (Input.is_action_just_pressed("reload")):
 		print("reload")
 
-	#make it so you cant move while shooting
-	if !shoot:
+	#make it so you cant move while shooting (added hit)
+	if !shoot and !hit:
 		move_and_slide()
 
 func _on_timer_timeout():
 	shoot = false
 	
 func set_animation_orientation():
-	if !shoot :
+	if !shoot and !hit:
 		# play animtion depending on velocity values
 		# and save the orinetation in last_movement and last_flip
 		if velocity.x < 0 and velocity.y == 0:
@@ -142,8 +144,11 @@ func select_nozzle(flip:bool, orientation:String) -> Marker2D:
 		#return Vector2.LEFT
 	#else:
 		#return Vector2.ZERO
-	
 
+func _on_cactus_cactus_hit():
+	animated_sprite.play("hit_front")
+	hit = true
+	hit_timer.start()
 
-
-
+func _on_hit_timer_timeout():
+	hit = false
