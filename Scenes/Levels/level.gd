@@ -1,4 +1,5 @@
 extends Node2D
+class_name ParentLevel
 
 var money = 0
 var life = 100
@@ -17,10 +18,6 @@ func _on_player_shoot_bullet(nozzle_marker):
 	bullet.direction = Vector2.UP.rotated(nozzle_marker.rotation)
 	bullet.global_position = nozzle_marker.global_position
 	bullet.rotation = nozzle_marker.rotation
-
-
-	
-
 
 func _on_cactus_cactus_sting():
 	life -= 1
