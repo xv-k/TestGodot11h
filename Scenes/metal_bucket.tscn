@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfgj6a2ns8i1s"]
+
+[ext_resource type="PackedScene" uid="uid://bl4eogkm1emyd" path="res://Scenes/object_template.tscn" id="1_46rjx"]
+[ext_resource type="Script" path="res://MetalBucket.gd" id="2_njjqp"]
+[ext_resource type="Texture2D" uid="uid://mjhk3ja4m02i" path="res://Assets/Sprites/Atlas.png" id="3_w8km6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rqmtb"]
+radius = 6.0
+height = 14.0
+
+[node name="MetalBucket" instance=ExtResource("1_46rjx")]
+script = ExtResource("2_njjqp")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_w8km6")
+region_enabled = true
+region_rect = Rect2(576, 272, 16, 16)
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CapsuleShape2D_rqmtb")

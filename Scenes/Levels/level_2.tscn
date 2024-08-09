@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b86ddjhetbcnf"]
+[gd_scene load_steps=15 format=3 uid="uid://b86ddjhetbcnf"]
 
 [ext_resource type="PackedScene" uid="uid://dgrawmb3nqcih" path="res://Scenes/Levels/level.tscn" id="1_04vd8"]
 [ext_resource type="Texture2D" uid="uid://mjhk3ja4m02i" path="res://Assets/Sprites/Atlas.png" id="2_72mcp"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cjevo2aeol86k" path="res://Scenes/cactus.tscn" id="4_l8w78"]
 [ext_resource type="PackedScene" uid="uid://brfalgwcxbdm4" path="res://Scenes/lantern.tscn" id="5_8pd28"]
 [ext_resource type="PackedScene" uid="uid://eukc1ytdvkww" path="res://Scenes/swinging_sign.tscn" id="6_584i7"]
+[ext_resource type="PackedScene" uid="uid://dfgj6a2ns8i1s" path="res://Scenes/metal_bucket.tscn" id="6_xoe2e"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_s54lj"]
 polygon = PackedVector2Array(-8, 0.375, -5.875, -0.875, -3.5, -2.375, 0.625, -4.5, 4.75, -4.625, 8, -2.25, 8, 2.375, 5.25, 2.875, 3.125, 5.5, 0, 6.75, -4.875, 7, -8, 5.75)
@@ -3817,23 +3818,23 @@ position = Vector2(89, 10)
 [node name="Cactus3" parent="." index="6" instance=ExtResource("4_l8w78")]
 position = Vector2(251, 15)
 
-[node name="Lantern" parent="." index="7" instance=ExtResource("5_8pd28")]
+[node name="MetalBucket" parent="." index="7" instance=ExtResource("6_xoe2e")]
+position = Vector2(323, 0)
+
+[node name="Lantern" parent="." index="8" instance=ExtResource("5_8pd28")]
 position = Vector2(39, -24)
 metadata/_edit_lock_ = true
 
-[node name="Lantern2" parent="." index="8" instance=ExtResource("5_8pd28")]
+[node name="Lantern2" parent="." index="9" instance=ExtResource("5_8pd28")]
 position = Vector2(300, -39)
 metadata/_edit_lock_ = true
 
-[node name="Lantern3" parent="." index="9" instance=ExtResource("5_8pd28")]
+[node name="Lantern3" parent="." index="10" instance=ExtResource("5_8pd28")]
 position = Vector2(144, 43)
 metadata/_edit_lock_ = true
 
-[node name="SwingingSign" parent="." index="10" instance=ExtResource("6_584i7")]
+[node name="SwingingSign" parent="." index="11" instance=ExtResource("6_584i7")]
 position = Vector2(157, -60)
-
-[node name="TileMap" parent="." index="11"]
-visible = false
 
 [connection signal="player_entered" from="BagOfMoney" to="." method="_on_bag_of_money_player_entered"]
 [connection signal="player_entered" from="BagOfMoney2" to="." method="_on_bag_of_money_player_entered"]
