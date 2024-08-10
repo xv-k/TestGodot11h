@@ -3,8 +3,11 @@
 [ext_resource type="Script" path="res://ObjectTemplate.gd" id="1_u5mcw"]
 
 [node name="ObjectTemplate" type="StaticBody2D"]
+input_pickable = true
 script = ExtResource("1_u5mcw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

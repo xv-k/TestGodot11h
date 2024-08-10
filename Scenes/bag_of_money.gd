@@ -14,3 +14,7 @@ func _on_area_2d_body_entered(body):
 	# set_deffered is used so that the physics calculation is done first and after that we disable teh collisionshape
 	$Area2D/CollisionShape2D.set_deferred("disabled", true) 
 	player_entered.emit(body)
+
+
+func _on_mouse_entered():
+	print("bag of money")

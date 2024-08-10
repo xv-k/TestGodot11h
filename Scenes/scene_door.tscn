@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cg3t60dex75p7"]
+
+[ext_resource type="Script" path="res://SceneDoor.gd" id="1_hp55x"]
+[ext_resource type="Texture2D" uid="uid://mjhk3ja4m02i" path="res://Assets/Sprites/Atlas.png" id="2_vyo8x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t4y42"]
+size = Vector2(25, 29)
+
+[node name="SceneDoor" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_hp55x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
+texture = ExtResource("2_vyo8x")
+region_enabled = true
+region_rect = Rect2(704, 224, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_t4y42")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
