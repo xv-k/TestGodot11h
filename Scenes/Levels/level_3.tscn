@@ -1,12 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://brvg2ih0wjuij"]
+[gd_scene load_steps=7 format=3 uid="uid://bl1no7gudafwq"]
 
-[ext_resource type="PackedScene" uid="uid://dgrawmb3nqcih" path="res://Scenes/Levels/level.tscn" id="1_cyo13"]
-[ext_resource type="TileSet" uid="uid://bx02ogmpnh2og" path="res://Scenes/Levels/level_tileset.tres" id="2_ppujb"]
-[ext_resource type="PackedScene" uid="uid://dfgj6a2ns8i1s" path="res://Scenes/metal_bucket.tscn" id="3_iur0g"]
-[ext_resource type="PackedScene" uid="uid://dgmcyxs706fr7" path="res://Scenes/test_object.tscn" id="4_julw5"]
-[ext_resource type="PackedScene" uid="uid://cg3t60dex75p7" path="res://Scenes/scene_door.tscn" id="5_ruet8"]
+[ext_resource type="PackedScene" uid="uid://dgrawmb3nqcih" path="res://Scenes/Levels/parent_level.tscn" id="1_cyo13"]
+[ext_resource type="TileSet" uid="uid://cmu3rcfgnu4rx" path="res://Scenes/Levels/level_tileset.tres" id="2_ppujb"]
+[ext_resource type="Script" path="res://Scenes/Levels/level_3.gd" id="2_q0bbj"]
+[ext_resource type="PackedScene" path="res://Scenes/metal_bucket.tscn" id="3_iur0g"]
+[ext_resource type="PackedScene" path="res://Scenes/test_object.tscn" id="4_julw5"]
+[ext_resource type="PackedScene" uid="uid://8tabru3qvx6n" path="res://Scenes/scene_door.tscn" id="5_ruet8"]
 
 [node name="Level3" instance=ExtResource("1_cyo13")]
+script = ExtResource("2_q0bbj")
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
 tile_set = ExtResource("2_ppujb")
@@ -23,7 +25,6 @@ position = Vector2(-70, 20)
 
 [node name="SceneDoor" parent="." index="3" instance=ExtResource("5_ruet8")]
 position = Vector2(8, -48)
-level = null
 
 [node name="Player" parent="." index="4"]
 position = Vector2(24, 50)

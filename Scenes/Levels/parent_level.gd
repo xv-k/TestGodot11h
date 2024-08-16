@@ -39,3 +39,6 @@ func _on_cactus_cactus_sting():
 	#hit_tween.tween_property($Player,"modulate", Color(1, 1, 1, 1), 0.1)
 	#hit_tween.tween_property($Player/Camera2D,"zoom", Vector2(3,3), 0.5)
 	print(str(life))
+
+
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cg3t60dex75p7"]
+[gd_scene load_steps=4 format=3 uid="uid://8tabru3qvx6n"]
 
 [ext_resource type="Script" path="res://SceneDoor.gd" id="1_hp55x"]
 [ext_resource type="Texture2D" uid="uid://mjhk3ja4m02i" path="res://Assets/Sprites/Atlas.png" id="2_vyo8x"]

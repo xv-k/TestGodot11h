@@ -1,15 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://b86ddjhetbcnf"]
+[gd_scene load_steps=10 format=3 uid="uid://hyiyvpsx51q2"]
 
-[ext_resource type="PackedScene" uid="uid://dgrawmb3nqcih" path="res://Scenes/Levels/level.tscn" id="1_04vd8"]
+[ext_resource type="PackedScene" uid="uid://dgrawmb3nqcih" path="res://Scenes/Levels/parent_level.tscn" id="1_04vd8"]
 [ext_resource type="Script" path="res://Scenes/Levels/level_2.gd" id="2_v42va"]
-[ext_resource type="TileSet" uid="uid://bx02ogmpnh2og" path="res://Scenes/Levels/level_tileset.tres" id="3_iinbt"]
+[ext_resource type="TileSet" uid="uid://cmu3rcfgnu4rx" path="res://Scenes/Levels/level_tileset.tres" id="3_iinbt"]
 [ext_resource type="PackedScene" uid="uid://bkvf6tdetmb1d" path="res://Scenes/bag_of_money.tscn" id="3_r1anc"]
-[ext_resource type="PackedScene" uid="uid://cjevo2aeol86k" path="res://Scenes/cactus.tscn" id="4_l8w78"]
-[ext_resource type="PackedScene" uid="uid://brfalgwcxbdm4" path="res://Scenes/lantern.tscn" id="5_8pd28"]
+[ext_resource type="PackedScene" uid="uid://cde62808386xx" path="res://Scenes/cactus.tscn" id="4_l8w78"]
+[ext_resource type="PackedScene" uid="uid://br2dh1pxax2d" path="res://Scenes/lantern.tscn" id="5_8pd28"]
 [ext_resource type="PackedScene" uid="uid://eukc1ytdvkww" path="res://Scenes/swinging_sign.tscn" id="6_584i7"]
-[ext_resource type="PackedScene" uid="uid://dfgj6a2ns8i1s" path="res://Scenes/metal_bucket.tscn" id="6_xoe2e"]
-[ext_resource type="PackedScene" uid="uid://cg3t60dex75p7" path="res://Scenes/scene_door.tscn" id="9_jcted"]
-[ext_resource type="PackedScene" uid="uid://brvg2ih0wjuij" path="res://Scenes/Levels/level_3.tscn" id="10_jdvh5"]
+[ext_resource type="PackedScene" path="res://Scenes/metal_bucket.tscn" id="6_xoe2e"]
+[ext_resource type="PackedScene" uid="uid://8tabru3qvx6n" path="res://Scenes/scene_door.tscn" id="9_jcted"]
 
 [node name="Level2" instance=ExtResource("1_04vd8")]
 script = ExtResource("2_v42va")
@@ -70,7 +69,7 @@ position = Vector2(157, -60)
 
 [node name="SceneDoor" parent="." index="12" instance=ExtResource("9_jcted")]
 position = Vector2(560, -22)
-level = ExtResource("10_jdvh5")
+level_to_load = 1
 
 [connection signal="player_entered" from="BagOfMoney" to="." method="_on_bag_of_money_player_entered"]
 [connection signal="player_entered" from="BagOfMoney2" to="." method="_on_bag_of_money_player_entered"]
