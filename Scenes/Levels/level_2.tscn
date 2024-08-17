@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cde62808386xx" path="res://Scenes/cactus.tscn" id="4_l8w78"]
 [ext_resource type="PackedScene" uid="uid://br2dh1pxax2d" path="res://Scenes/lantern.tscn" id="5_8pd28"]
 [ext_resource type="PackedScene" uid="uid://eukc1ytdvkww" path="res://Scenes/swinging_sign.tscn" id="6_584i7"]
-[ext_resource type="PackedScene" path="res://Scenes/metal_bucket.tscn" id="6_xoe2e"]
+[ext_resource type="PackedScene" uid="uid://dfgj6a2ns8i1s" path="res://Scenes/metal_bucket.tscn" id="6_xoe2e"]
 [ext_resource type="PackedScene" uid="uid://8tabru3qvx6n" path="res://Scenes/scene_door.tscn" id="9_jcted"]
 
 [node name="Level2" instance=ExtResource("1_04vd8")]
