@@ -1,14 +1,21 @@
 extends Node2D
 class_name ParentLevel
 
+@onready var money_ui = $UI_test/VBoxContainer/Label
+@onready var life_ui = $UI_test/VBoxContainer/Label2
+
 var money = 0
-var life = 100
+var life = 20
 var bullet_scene: PackedScene = preload("res://Scenes/bullet.tscn")
+
+func _ready():
+	money_ui.text = str(money) + "$"
+	life_ui.text = "Life: " + str(life)
 
 func _on_bag_of_money_player_entered(_body):
 	money += 100
 	print(str(money) + "$")
-
+	money_ui.text = str(money) + "$"
 
 func _on_player_shoot_bullet(nozzle_marker):
 	var bullet = bullet_scene.instantiate()
@@ -39,6 +46,7 @@ func _on_cactus_cactus_sting():
 	#hit_tween.tween_property($Player,"modulate", Color(1, 1, 1, 1), 0.1)
 	#hit_tween.tween_property($Player/Camera2D,"zoom", Vector2(3,3), 0.5)
 	print(str(life))
+	life_ui.text = "Life: " + str(life)
 
 
 

@@ -15,8 +15,6 @@ position = Vector2(248, -24)
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 
-[node name="UI_test" parent="Player" instance=ExtResource("3_pfp1l")]
-
 [node name="Bullets" type="Node2D" parent="."]
 position = Vector2(22, -7)
 
@@ -29,5 +27,7 @@ visible = false
 color = Color(0.843184, 0.843184, 0.843184, 1)
 blend_mode = 1
 metadata/_edit_lock_ = true
+
+[node name="UI_test" parent="." instance=ExtResource("3_pfp1l")]
 
 [connection signal="shoot_bullet" from="Player" to="." method="_on_player_shoot_bullet"]
