@@ -42,7 +42,7 @@ amount = 3
 amount_ratio = 0.5
 process_material = SubResource("ParticleProcessMaterial_gl7ef")
 texture = ExtResource("2_b4cfr")
-fixed_fps = 8
+fixed_fps = 10
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_vql70")

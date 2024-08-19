@@ -1,4 +1,19 @@
-[gd_scene format=3 uid="uid://bu2fnfh17cyts"]
+[gd_scene load_steps=3 format=3 uid="uid://bu2fnfh17cyts"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g05om"]
+bg_color = Color(0.732268, 0.00523845, 3.85046e-07, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.950638, 0.784962, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="Theme" id="Theme_v4ha7"]
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_g05om")
 
 [node name="UI_test" type="CanvasLayer"]
 
@@ -13,3 +28,15 @@ text = "Life: 100"
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "100 $"
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -123.0
+offset_right = 123.0
+offset_bottom = 27.0
+grow_horizontal = 2
+theme = SubResource("Theme_v4ha7")
+max_value = 20.0
+value = 20.0

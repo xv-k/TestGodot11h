@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://hyiyvpsx51q2"]
+[gd_scene load_steps=11 format=3 uid="uid://hyiyvpsx51q2"]
 
 [ext_resource type="PackedScene" uid="uid://dgrawmb3nqcih" path="res://Scenes/Levels/parent_level.tscn" id="1_04vd8"]
 [ext_resource type="Script" path="res://Scenes/Levels/level_2.gd" id="2_v42va"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://br2dh1pxax2d" path="res://Scenes/lantern.tscn" id="5_8pd28"]
 [ext_resource type="PackedScene" uid="uid://eukc1ytdvkww" path="res://Scenes/swinging_sign.tscn" id="6_584i7"]
 [ext_resource type="PackedScene" uid="uid://dfgj6a2ns8i1s" path="res://Scenes/metal_bucket.tscn" id="6_xoe2e"]
+[ext_resource type="PackedScene" uid="uid://yc5a2fy14bso" path="res://Scenes/smoking_barrel.tscn" id="7_4ronq"]
 [ext_resource type="PackedScene" uid="uid://8tabru3qvx6n" path="res://Scenes/scene_door.tscn" id="9_jcted"]
 
 [node name="Level2" instance=ExtResource("1_04vd8")]
@@ -47,27 +48,39 @@ position = Vector2(-27, 57)
 [node name="Cactus" parent="." index="5" instance=ExtResource("4_l8w78")]
 position = Vector2(-47, 3)
 
-[node name="Cactus2" parent="." index="6" instance=ExtResource("4_l8w78")]
+[node name="Cactus4" parent="." index="6" instance=ExtResource("4_l8w78")]
+position = Vector2(38, 87)
+
+[node name="Cactus5" parent="." index="7" instance=ExtResource("4_l8w78")]
+position = Vector2(138, 87)
+
+[node name="SmokingBarrel" parent="." index="8" instance=ExtResource("7_4ronq")]
+position = Vector2(308, 67)
+
+[node name="Cactus6" parent="." index="9" instance=ExtResource("4_l8w78")]
+position = Vector2(162, 45)
+
+[node name="Cactus2" parent="." index="10" instance=ExtResource("4_l8w78")]
 position = Vector2(89, 10)
 
-[node name="Cactus3" parent="." index="7" instance=ExtResource("4_l8w78")]
+[node name="Cactus3" parent="." index="11" instance=ExtResource("4_l8w78")]
 position = Vector2(251, 15)
 
-[node name="Lantern" parent="." index="8" instance=ExtResource("5_8pd28")]
+[node name="Lantern" parent="." index="12" instance=ExtResource("5_8pd28")]
 position = Vector2(39, -24)
 metadata/_edit_lock_ = true
 
-[node name="Lantern2" parent="." index="9" instance=ExtResource("5_8pd28")]
+[node name="Lantern2" parent="." index="13" instance=ExtResource("5_8pd28")]
 position = Vector2(353, -36)
 
-[node name="Lantern3" parent="." index="10" instance=ExtResource("5_8pd28")]
+[node name="Lantern3" parent="." index="14" instance=ExtResource("5_8pd28")]
 position = Vector2(144, 43)
 metadata/_edit_lock_ = true
 
-[node name="SwingingSign" parent="." index="11" instance=ExtResource("6_584i7")]
+[node name="SwingingSign" parent="." index="15" instance=ExtResource("6_584i7")]
 position = Vector2(157, -60)
 
-[node name="SceneDoor" parent="." index="12" instance=ExtResource("9_jcted")]
+[node name="SceneDoor" parent="." index="16" instance=ExtResource("9_jcted")]
 position = Vector2(560, -22)
 level_to_load = 1
 
@@ -76,6 +89,12 @@ level_to_load = 1
 [connection signal="player_entered" from="BagOfMoney3" to="." method="_on_bag_of_money_player_entered"]
 [connection signal="cactus_hit" from="Cactus" to="Player" method="_on_cactus_cactus_hit"]
 [connection signal="cactus_sting" from="Cactus" to="." method="_on_cactus_cactus_sting"]
+[connection signal="cactus_hit" from="Cactus4" to="Player" method="_on_cactus_cactus_hit"]
+[connection signal="cactus_sting" from="Cactus4" to="." method="_on_cactus_cactus_sting"]
+[connection signal="cactus_hit" from="Cactus5" to="Player" method="_on_cactus_cactus_hit"]
+[connection signal="cactus_sting" from="Cactus5" to="." method="_on_cactus_cactus_sting"]
+[connection signal="cactus_hit" from="Cactus6" to="Player" method="_on_cactus_cactus_hit"]
+[connection signal="cactus_sting" from="Cactus6" to="." method="_on_cactus_cactus_sting"]
 [connection signal="cactus_hit" from="Cactus2" to="Player" method="_on_cactus_cactus_hit"]
 [connection signal="cactus_sting" from="Cactus2" to="." method="_on_cactus_cactus_sting"]
 [connection signal="cactus_hit" from="Cactus3" to="Player" method="_on_cactus_cactus_hit"]

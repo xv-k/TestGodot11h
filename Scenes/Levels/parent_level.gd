@@ -3,12 +3,14 @@ class_name ParentLevel
 
 @onready var money_ui = $UI_test/VBoxContainer/Label
 @onready var life_ui = $UI_test/VBoxContainer/Label2
+@onready var life_bar = $UI_test/ProgressBar
 
 var bullet_scene: PackedScene = preload("res://Scenes/bullet.tscn")
 
 func _ready():
 	money_ui.text = str(GlobalVariables.money) + "$"
 	life_ui.text = "Life: " + str(GlobalVariables.life)
+	life_bar.value = GlobalVariables.life
 
 func _on_bag_of_money_player_entered(_body):
 	GlobalVariables.money += 100
@@ -45,6 +47,7 @@ func _on_cactus_cactus_sting():
 	#hit_tween.tween_property($Player/Camera2D,"zoom", Vector2(3,3), 0.5)
 	print(str(GlobalVariables.life))
 	life_ui.text = "Life: " + str(GlobalVariables.life)
+	life_bar.value = GlobalVariables.life
 
 
 
