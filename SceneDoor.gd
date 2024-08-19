@@ -17,6 +17,8 @@ func _ready():
 		level_path = "res://Scenes/Levels/level_4.tscn"
 	
 func _on_body_entered(_body):
-	get_tree().change_scene_to_file.call_deferred(level_path)
+	#uses a fucntion in an global scene that has an animation and then chenges the scene in there
+	TransitionLayer.scene_transition(level_path)
+	#get_tree().change_scene_to_file.call_deferred(level_path)
 	#get_tree().unload_current_scene.call_deferred()
 	#get_tree().change_scene_to_packed.call_deferred(level)
