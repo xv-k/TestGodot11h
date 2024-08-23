@@ -8,10 +8,12 @@
 position = Vector2(83, 82)
 script = ExtResource("1_2pvnl")
 
-[node name="Player" parent="." instance=ExtResource("2_c3wik")]
+[node name="YsortTestNode" type="Node2D" parent="."]
+
+[node name="Player" parent="YsortTestNode" instance=ExtResource("2_c3wik")]
 position = Vector2(248, -24)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="YsortTestNode/Player"]
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 
@@ -30,4 +32,4 @@ metadata/_edit_lock_ = true
 
 [node name="UI_test" parent="." instance=ExtResource("3_pfp1l")]
 
-[connection signal="shoot_bullet" from="Player" to="." method="_on_player_shoot_bullet"]
+[connection signal="shoot_bullet" from="YsortTestNode/Player" to="." method="_on_player_shoot_bullet"]
