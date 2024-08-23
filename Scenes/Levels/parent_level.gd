@@ -28,7 +28,7 @@ func _on_player_shoot_bullet(nozzle_marker):
 
 func _on_cactus_cactus_sting():
 	GlobalVariables.life -= 1
-	var hit = Color(179, 56, 31, 104)
+	#var hit = Color(179, 56, 31, 104)
 	
 	#var hit_tween = get_tree().create_tween()
 	#no need to get the tree
@@ -40,7 +40,7 @@ func _on_cactus_cactus_sting():
 	#hit_tween.tween_property($Player,"modulate", Color(1, 1, 1), 0.1)
 	#the two lines of code above are the same as the one line below
 	#(tween starts from and goes to a value in one line)
-	hit_tween.tween_property($Player,"modulate", Color(1, 1, 1), 0.5).from(Color(1,0,0))
+	hit_tween.tween_property($YsortTestNode/Player,"modulate", Color(1, 1, 1), 0.5).from(Color(1,0,0))
 	
 	
 	#hit_tween.tween_property($Player,"modulate", Color(1, 1, 1, 1), 0.1)

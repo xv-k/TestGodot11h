@@ -5,8 +5,12 @@ signal player_entered(body)
 # so editable children buit just this variable instead)
 @export var sprite_frame = 1
 
+#export value not used anymore -> now random
+var rng = RandomNumberGenerator.new()
+
 func _ready():
-	$Sprite2D.frame = sprite_frame
+	var random_sprite = rng.randf_range(1, 3)
+	$Sprite2D.frame = random_sprite
 	
 func _on_area_2d_body_entered(body):
 	$Sprite2D.set_frame(0)
