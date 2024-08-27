@@ -9,6 +9,7 @@ size = Vector2(25, 29)
 [node name="SceneDoor" type="Area2D"]
 collision_mask = 2
 script = ExtResource("1_hp55x")
+level_to_load = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -2)

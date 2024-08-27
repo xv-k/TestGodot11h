@@ -6,6 +6,7 @@ extends CharacterBody2D
 signal shoot_bullet(nozzle_marker)
 
 @onready var animated_sprite:AnimatedSprite2D = $AnimatedSprite2D
+
 const SPEED = 35.0
 var last_movement:String = "front"
 var last_flip:bool = false
@@ -145,8 +146,10 @@ func select_nozzle(flip:bool, orientation:String) -> Marker2D:
 	#else:
 		#return Vector2.ZERO
 
-func _on_cactus_cactus_hit():
+
+func cactus_hit():
 	animated_sprite.play("hit_front")
+	print("hit")
 	hit = true
 	hit_timer.start()
 
